@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { Card, Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import Deck from './Deck';
 
 
@@ -21,7 +23,20 @@ class App extends Component {
     renderCard(item)
     {
         return (
-            <Text> {item.text} </Text>
+            <Card
+                key={item.id}
+                title={item.text}
+                image={{ uri: item.uri }}
+            >
+                <Text style={{marginBottom:10}} >
+                    I Can customize the card further
+                </Text>
+                <Button
+                    icon={{name:  "code" }}
+                    backgroundColor='#03A9F4'
+                    title="View now"
+                />
+            </Card>
         );
     }
 
